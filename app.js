@@ -44,3 +44,38 @@ header.append(message);
 document.querySelector('.btn--close-cookie').addEventListener('click', () => {
   message.remove();
 });
+
+
+// styles
+message.style.backgroundColor = '#37383d';
+message.style.width = '120%';
+
+// attributes
+const logo = document.querySelector('.nav__logo');
+
+const btnScrollTo = document.querySelector('.btn--scroll-to');
+const section1 = document.querySelector('#section--1');
+
+btnScrollTo.addEventListener('click', (e) => {
+  const s1coords = section1.getBoundingClientRect();
+
+  e.target.getBoundingClientRect();
+
+
+  // window.scrollTo(s1coords.left + window.pageXOffset, s1coords.top + window.pageYOffset);
+
+  // window.scrollTo({
+  //   left: s1coords.left + window.pageXOffset,
+  //    top: s1coords.top + window.pageYOffset,
+  //    behavior: 'smooth',  
+
+
+     section1.scrollIntoView({behavior: 'smooth'});
+});
+
+
+const h1 = document.querySelector('h1');
+
+h1.addEventListener('mouseenter', () => {
+    alert('addEventListener: Great You are reading the heading!');
+});
