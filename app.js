@@ -55,36 +55,36 @@ message.style.width = '120%';
 // attributes
 const logo = document.querySelector('.nav__logo');
 
-const btnScrollTo = document.querySelector('.btn--scroll-to');
-const section1 = document.querySelector('#section--1');
+// const btnScrollTo = document.querySelector('.btn--scroll-to');
+// const section1 = document.querySelector('#section--1');
 
-btnScrollTo.addEventListener('click', (e) => {
-  const s1coords = section1.getBoundingClientRect();
+// btnScrollTo.addEventListener('click', (e) => {
+//   const s1coords = section1.getBoundingClientRect();
 
-  e.target.getBoundingClientRect();
+//   e.target.getBoundingClientRect();
 
 
-  // window.scrollTo(s1coords.left + window.pageXOffset, s1coords.top + window.pageYOffset);
+//   // window.scrollTo(s1coords.left + window.pageXOffset, s1coords.top + window.pageYOffset);
 
-  // window.scrollTo({
-  //   left: s1coords.left + window.pageXOffset,
-  //    top: s1coords.top + window.pageYOffset,
-  //    behavior: 'smooth',  
+//   // window.scrollTo({
+//   //   left: s1coords.left + window.pageXOffset,
+//   //    top: s1coords.top + window.pageYOffset,
+//   //    behavior: 'smooth',  
 
    
-     section1.scrollIntoView({behavior: 'smooth'});
+//      section1.scrollIntoView({behavior: 'smooth'});
     
-});
+// });
 
 
 
-const alertH1 = function () {
-  alert('Great! you are reading the heading ! :D');
+// const alertH1 = function () {
+//   alert('Great! you are reading the heading ! :D');
 
-  h1.removeEventListener('mouseenter', alertH1);
-}
+//   h1.removeEventListener('mouseenter', alertH1);
+// }
 
-h1.addEventListener('mouseenter', alertH1);
+// h1.addEventListener('mouseenter', alertH1);
 
 
 const randomInt = (min,max) => Math.floor(Math.random() * (max - min  + 1) + min);
@@ -105,3 +105,22 @@ document.querySelector('.nav').addEventListener('click', function (e) {
 
 
 // PAGE NAVIGATION
+// document.querySelectorAll('.nav__link').forEach(function(el) {
+//   el.addEventListener('click', function(e) {
+//     e.preventDefault();
+//     const id = this.getAttribute('href');
+//     document.querySelector(id).scrollIntoView({behavior: 'smooth'});
+//   });
+// })
+
+
+// Add event listener to common parent element
+document.querySelector('.nav__links').addEventListener('click', function(e) {
+  e.preventDefault();
+
+    if (e.target.classList.contains('nav__link')) {
+      const id = e.target.getAttribute('href');
+      document.querySelector(id).scrollIntoView({behavior: 'smooth'});
+      console.log(id);
+    }
+});
