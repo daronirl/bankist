@@ -55,26 +55,16 @@ message.style.width = '120%';
 // attributes
 const logo = document.querySelector('.nav__logo');
 
-// const btnScrollTo = document.querySelector('.btn--scroll-to');
-// const section1 = document.querySelector('#section--1');
+const btnScrollTo = document.querySelector('.btn--scroll-to');
+const section1 = document.querySelector('#section--1');
 
-// btnScrollTo.addEventListener('click', (e) => {
-//   const s1coords = section1.getBoundingClientRect();
+btnScrollTo.addEventListener('click', (e) => {
+  const s1coords = section1.getBoundingClientRect();
 
-//   e.target.getBoundingClientRect();
-
-
-//   // window.scrollTo(s1coords.left + window.pageXOffset, s1coords.top + window.pageYOffset);
-
-//   // window.scrollTo({
-//   //   left: s1coords.left + window.pageXOffset,
-//   //    top: s1coords.top + window.pageYOffset,
-//   //    behavior: 'smooth',  
-
-   
-//      section1.scrollIntoView({behavior: 'smooth'});
+  e.target.getBoundingClientRect();
+  section1.scrollIntoView({behavior: 'smooth'});
     
-// });
+});
 
 
 
@@ -123,4 +113,32 @@ document.querySelector('.nav__links').addEventListener('click', function(e) {
       document.querySelector(id).scrollIntoView({behavior: 'smooth'});
       console.log(id);
     }
+});
+
+
+// going downards : selecting child elements
+// h1.firstElementChild.style.color = 'red';
+// h1.lastElementChild.style.color = 'white';
+
+// going upwards selecting parents
+// h1.closest('.header').style.background = 'orangered';
+
+// going sideways selecting siblings
+[...h1.parentElement.children].forEach(function (el) {
+  if (el !== h1) el.style.transform = 'scale(0.8)';
+}); 
+
+
+// tabbed components
+const tabs = document.querySelectorAll('.operations__tab');
+const tabsContainer = document.querySelector('.operations__tab-container');
+const tabsContent = document.querySelectorAll('.operations__content');
+
+tabsContainer.addEventListener('click', function (e) {
+  const clicked = e.target.closest('.operations__tab');
+  console.log(clicked);
+
+  // Guard clause
+  if (!clicked) return; 
+  clicked.classList.add('operations__tab--active');
 });
